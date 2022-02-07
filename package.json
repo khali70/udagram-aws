@@ -1,0 +1,7 @@
+{
+    "scripts": {
+        "deploy:front": "cd udagram-front && npm install && npm deploy",
+        "deploy:back": "cd udagram-api && npm install && npm deploy"
+    },
+    "devDependencies": {}
+}
