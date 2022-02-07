@@ -20,7 +20,7 @@ This is a social media app like facebook instagram...etc
 
 ### RDS
 
-[![]()]()<br>
+[![](docs/images/db.png)]()<br>
 
 ### Last success Circle CI build
 
