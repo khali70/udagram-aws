@@ -7,7 +7,7 @@ orbs:
   aws-eb: circleci/aws-elastic-beanstalk@1.0.2
 
 jobs:
-  deploy:  
+  deploy:
     docker:
       - image: cimg/node:15.0.1-browsers
     steps:
@@ -17,12 +17,14 @@ jobs:
       - aws-cli/setup
       - aws-eb/setup
       - run:
-          name: Deploy Front-end 
+          name: Test Front-end
+          command: npm run test
+      - run:
+          name: Deploy Front-end
           command: npm run deploy:front
       - run:
           name: Deploy Back-end
           command: npm run deploy:back
-    
 
 workflows:
   udagram:
