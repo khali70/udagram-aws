@@ -2,7 +2,7 @@
     "scripts": {
         "deploy:front": "cd udagram-frontend && npm install && npm run deploy && cd ..",
         "deploy:back": "cd udagram-api && npm install && npm run deploy && cd ..",
-        "test:front": "cd udagram-front && npm install && npm run test && cd .."
+        "test:front": "cd udagram-frontend && npm install && npm run test && cd .."
     },
     "devDependencies": {}
 }

@@ -18,7 +18,7 @@ jobs:
       - aws-eb/setup
       - run:
           name: Test Front-end
-          command: npm run test
+          command: npm run test:front
       - run:
           name: Deploy Front-end
           command: npm run deploy:front
