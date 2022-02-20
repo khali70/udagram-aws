@@ -17,14 +17,29 @@ jobs:
       - aws-cli/setup
       - aws-eb/setup
       - run:
+          name: Install Front-end packages
+          command: npm run install:front
+      - run:
           name: Test Front-end
           command: npm run test:front
       - run:
-          name: Deploy Front-end
-          command: npm run deploy:front
+          name: build Front-end
+          command: npm run build:front
+      - run:
+          name: Install Back-end
+          command: npm run install:back
+      - run:
+          name: Test Back-end
+          command: npm run test:back
+      - run:
+          name: Build Back-end
+          command: npm run build:back
       - run:
           name: Deploy Back-end
           command: npm run deploy:back
+      - run:
+          name: Deploy Front-end
+          command: npm run deploy:front
 
 workflows:
   udagram:

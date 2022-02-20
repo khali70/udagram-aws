@@ -6,7 +6,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "clean": "rm -rf www/ || true",
+    "build": "npm run clean && ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",

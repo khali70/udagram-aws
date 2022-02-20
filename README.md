@@ -1,87 +1,111 @@
-# Udagram
+# Udagram [![CircleCI](https://circleci.com/gh/khali70/udagram-aws/tree/master.svg?style=shield)](https://circleci.com/gh/khali70/udagram-aws/?branch=master)
 
-Pipeline Status (master Branch): [![CircleCI](https://circleci.com/gh/khali70/udagram-aws/tree/master.svg?style=shield)](https://circleci.com/gh/khali70/udagram-aws/?branch=master)
+<p>
 
-This is a social media app like facebook instagram...etc
+FullStack app built with Angular, Nodejs, Express and Postgres, hosted on [AWS](https://aws.amazon.com/), and use [CircleCI](https://circleci.com/) as CI/CD.
 
-## Live Preview
+</p>
 
-[![](docs/images/website.png)](http://elasticbeanstalk-us-east-1-353722244575.s3-website-us-east-1.amazonaws.com/)<br>
+## Table of content
 
-## Overview
+- [Udagram](#udagram)
+  - [Table of content](#table-of-content)
+  - [Requirements](#requirements)
+  - [Getting Started](#getting-started)
+    - [Installation](#installation)
+    - [Setup Environment](#setup-environment)
+  - [Available scripts:](#available-scripts)
+    - [installing](#installing)
+    - [Testing](#testing)
+    - [building](#building)
+    - [deploying](#deploying)
+  - [Built With](#built-with)
+  - [License](#license)
 
-### S3 Bucket
+## Requirements
 
-[![](docs/images/s3.png)]()<br>
-
-### Elastic Beanstalk
-
-[![](docs/images/el-health.png)]())<br>
-
-### RDS
-
-[![](docs/images/db.png)]()<br>
-
-### Last success Circle CI build
-
-[![](docs/images/CircleCi-working.png)]()<br>
-
-### Infrastructure
-
-1. S3 Bucket that hosts the frontend which is built using Angular framework.
-2. S3 Bucket that hosts the media files.
-3. Elastic Beanstalk that hosts the backend which is built using Node.js and Express.js in typescript.
-4. RDS that hosts the postgres DB which is built using postgres.
-   [![](docs/images/Web%20App%20Reference%20Architecture.png)]()<br>
-
-### Pipeline Overview
-
-1. CircleCi is triggered to start the build.
-2. Checkout the code from the repository.
-3. Install node.js,npm
-4. install Google chrome for testing
-5. Install AWS & Elastic Beanstalk CLI.
-6. Configure AWS Credentials.
-7. Run frontend tests.
-8. Build and Deploy frontend to S3.
-9. Build and Deploy backend to Elastic Beanstalk.
-
-## Required Tools
+> necessary AWS services needed for running the application:
+>
+> 1. In AWS, publicly available RDS database running Postgres.
+> 2. In AWS, s3 bucket for hosting the uploaded files.
 
 ```
-- Node v14.15.1 (LTS) or more recent. It is always advisable to keep node to latest LTS version.
+- Node v14.15.1 (LTS) or more recent. While older versions can work it is advisable to keep node to latest LTS version
 
-- npm 6.14.8 (LTS) or more recent, Yarn can also work.
+- npm 6.14.8 (LTS) or more recent, Yarn can work but was not tested for this project
 
-- [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html)
+- AWS CLI v2, v1 can work but was not tested for this project
 
-- [Elastic Beanstalk CLI](https://github.com/aws/aws-elastic-beanstalk-cli-setup).
+- Elastick beanstalk CLI v3.14.13
 
 - A RDS database running Postgres.
 
-- An S3 bucket.
-
-- An Elastic Beanstalk environment.
-
+- A S3 bucket for hosting uploaded pictures.
 ```
 
-## Installations
+## [Preview Website](http://elasticbeanstalk-us-east-1-353722244575.s3-website-us-east-1.amazonaws.com/)
 
-## In your local machine
+[![](docs/images/website.png)](http://elasticbeanstalk-us-east-1-353722244575.s3-website-us-east-1.amazonaws.com/)
 
-inside the udagram/udagram-api add in `.env` file
+## Getting Started
 
+1. Clone this repo locally into the location of your choice.
+1. Open a terminal and navigate to the root of the repo
+1. follow the instructions in the installation step
+
+### Installation
+
+From the root of the repo, to install the node_modules run the following:
+
+- `npm run backend:install`
+- `npm run frontend:install`
+
+> necessary AWS services needed for running the application:
+>
+> 1. In AWS, publicly available RDS database running Postgres.
+> 2. In AWS, s3 bucket for hosting the uploaded files.
+
+### Setup Environment
+
+#### `udagram-api/.env`<!-- omit in toc -->
+
+```bash
+PORT=EXPRESS_PORT
+DB_PORT=DATA_BASE_PORT
+
+POSTGRES_HOST=POSTGRES_HOST
+POSTGRES_USERNAME=POSTGRES_USERNAME
+POSTGRES_PASSWORD=POSTGRES_PASSWORD
+POSTGRES_DB=DATA_BASE_NAME
+URL=Backend_Host_Name
+JWT_SECRET=JWT_SECRET
+
+AWS_REGION=AWS_REGION
+AWS_PROFILE=AWS_PROFILE
+AWS_BUCKET=AWS_BUCKET
 ```
-POSTGRES_USERNAME=<your_db_user>
-POSTGRES_PASSWORD=<your_db_password>
-POSTGRES_DB=<your_db_name>
-POSTGRES_PORT=<your_db_port>
-POSTGRES_HOST=<your_db_host>
-PORT=<your_preferred_server_port>
-JWT_SECRET=<your_jwt_secret>
-AWS_BUCKET=<your_aws_bucket_name>
-AWS_REGION=<your_aws_region>
-```
+
+## Available scripts:
+
+### installing
+
+1. `npm run install:front`
+1. `npm run install:back`
+
+### Testing
+
+1. `npm run test:front`
+1. `npm run test:back`
+
+### building
+
+1. `npm run build:front`
+1. `npm run build:back`
+
+### deploying
+
+1. `npm run deploy:back`
+1. `npm run deploy:front`
 
 ## Built With
 
